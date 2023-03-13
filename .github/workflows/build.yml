@@ -46,15 +46,15 @@ jobs:
           export enable_ccache=on
         fi
         curl -L https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-macOS-Release-x64.zip --output skia.zip
-        unzip -d ./skia skia.zip
+        unzip -d /tmp/skia skia.zip
         cmake -S . -B build -G Ninja \
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
           -DENABLE_UI=${{ matrix.enable_ui }} \
           -DENABLE_CCACHE=$enable_ccache \
           -DCMAKE_OSX_ARCHITECTURES=x86_64
-          -DSKIA_DIR=./skia \
-          -DSKIA_LIBRARY_DIR=./skia/out/Release-x64 \
-          -DSKIA_LIBRARY=./skia/out/Release-x64/libskia.a
+          -DSKIA_DIR=/tmp/skia \
+          -DSKIA_LIBRARY_DIR=/tmp/skia/out/Release-x64 \
+          -DSKIA_LIBRARY=/tmp/skia/out/Release-x64/libskia.a
     - name: Compiling
       shell: bash
       run: |
