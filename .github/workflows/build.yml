@@ -52,7 +52,6 @@ jobs:
           -DENABLE_UI=${{ matrix.enable_ui }} \
           -DENABLE_CCACHE=$enable_ccache \
           -DCMAKE_OSX_ARCHITECTURES=x86_64
-          -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9
           -DLAF_BACKEND=skia \
           -DSKIA_DIR=./skia \
           -DSKIA_LIBRARY_DIR=./skia/out/Release-x64 \
